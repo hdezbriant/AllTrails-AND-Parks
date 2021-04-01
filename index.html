@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alltrails And Parks</title>
   <link rel="stylesheet" href="./assets/style/reset.css">
+  <link rel="preconnect" href="<link rel="preconnect href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
     <style>
@@ -17,7 +20,7 @@
 </head>
 
 <body>
-  <section class="hero is-success is-halfheight">
+  <section class="is-halfheight has-background-transparent">
     <div class="hero-head">
       <div class="container has-text-centered">
         <p class="title">
@@ -29,19 +32,14 @@
         <div class="box has-background-transparent;">
           <p class="title has-text-black">User Location</p>
           <p class="subtitle has-text-black">Parks or Trails?</p>
-          <div class="field">
+          <div class="field has-addons">
             <p class="control has-icons-left">
               <span class="select">
                 <select>
-                  <option selected>Country</option>
-                  <option>Select dropdown</option>
-                  <option>With options</option>
+                  <option>Parks</option>
+                  <option>Trails</option>
                 </select>
-              </span>
-              <span class="icon is-small is-left">
-                <i class="fas fa-globe"></i>
-              </span>
-            <div class="field has-addons">
+            <div class="field has-addons is-grouped-centered">
               <div class="control">
                 <input class="input" type="text" placeholder="Find your Park or Trail">
               </div>
@@ -49,14 +47,6 @@
                 <a class="button is-info">Search</a>
               </div>
             </div>
-            <label class="checkbox has-text-black">
-              <input type="checkbox">
-              Parks
-            </label>
-            <label class="checkbox has-text-black">
-              <input type="checkbox">
-              Trails
-            </label>
             </p>
           </div>
         </div>
@@ -92,7 +82,7 @@
       <p class="control has-icons-left">
         <input class="input is-info" type="text" placeholder="Search">
         <span class="icon is-left">
-          <i class="fas fa-search" aria-hidden="true"></i>
+          <i class="fas fa-search"></i>
         </span>
       </p>
     </div>
