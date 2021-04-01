@@ -9,19 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
-  <style>
-    body {
-      margin: 0px;
-      padding: 0px;
-    }
-
-    #map {
-      position: absolute;
-      bottom: 0%;
-      width: 50%;
-      height: 50%;
-    }
-  </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/style/style.css">
@@ -29,24 +16,26 @@
 
 <body>
   <section class="is-halfheight">
+    <img class="banner-img" src="assets/images/apgrandcanyon.jpg" alt="A landscape of the Grand Canyon.">
     <div class="hero-head">
       <div class="container has-text-centered">
-        <p class="title">
+        <h1 class="title customTitle">
           Alltrails and Parks
-        </p>
-        <p class="subtitle">
+        </h1>
+        <h2 class="subtitle customSubtitle">
           Come find Yours
-        </p>
-        <div class="box">
-          <p class="title has-text-black">User Location</p>
-          <p class="subtitle has-text-black">Parks or Trails?</p>
-          <div class="field has-addons">
+        </h2>
+        <div class="box" id="headerSearchBox">
+          <p class="title has-text-white">User Location</p>
+          <p class="subtitle has-text-white">Parks or Trails?</p>
+          <div class="field has-addons" id="headerBottom">
             <p class="control is-grouped has-icons-left">
               <span class="select">
                 <select>
                   <option>Parks</option>
                   <option>Trails</option>
                 </select>
+              </span>
                 <div class="field has-addons is-grouped-centered">
                   <div class="control">
                     <input class="input" type="text" placeholder="Find your Park or Trail">
@@ -55,7 +44,7 @@
                     <a class="button is-info">Search</a>
                   </div>
                 </div>
-                <div class="columns is-desktop">
+                <div class="columns is-desktop has-text-white">
                   <div class="column"> Looking for a new park?
                     Maybe a new trailhead?
                     Whatever you’re looking for, find it here</div>
@@ -63,8 +52,8 @@
                     And directions to get there!</div>
                   <div class="column">Schedule visits, and check them off as you go along!</div>
                 </div>
+            </p>
           </div>
-          </p>
         </div>
       </div>
     </div>
@@ -72,8 +61,7 @@
 
   </section>
 
-  <article class="panel is-info">
-
+  <article class="panel is-info" id="userplacelist">
     <p class="panel-heading">
       Places Visited
     </p>
