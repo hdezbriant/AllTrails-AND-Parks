@@ -14,6 +14,13 @@ function fetchLocation(query) {
         lat = data[0].lat;
         lon = data[0].lon;
         console.log(lon,lat)
+        
+    var url2 = 'https://us1.locationiq.com/v1/nearby.php?key=' + parksKey + '&lat=' + lat + '&lon=' + lon + '&tag=park&radius=300&format=json'
+
+        fetch(url2)
+            .then((response2) => response2.json())
+            .then((data2) => console.log(data2)
+            )
 
      var map = new mapboxgl.Map({
         container: 'map',
@@ -41,7 +48,31 @@ function fetchLocation(query) {
             trackUserLocation: true
         }));
     });
+
 }
+
+// function fetchParks() {
+//     // var url2 = 'https://us1.locationiq.com/v1/nearby.php?key=pk.7df0b25504ae825b867431043a4594df&lat=-37.870983&lon=144.980714&tag=park&radius=300&format=json'
+//     var url2 = 'https://us1.locationiq.com/v1/nearby.php?key=pk.7df0b25504ae825b867431043a4594df&lat=32.7174209&lon=-117.1627714&tag=park&radius=300&format=json'
+//     fetch(url2)
+//         .then((response2) => response2.json())
+//         .then((data2) => console.log(data2)
+        
+//         );
+// }
+// fetchParks();
+
+//https://us1.locationiq.com/v1/nearby.php?key=pk.7df0b25504ae825b867431043a4594df&lat=32.7174209&lon=-117.1627714&tag=park&radius=300&format=json
+
+// function fetchParks() {
+//     var url2 = 'https://us1.locationiq.com/v1/nearby.php?key=' + parksKey + '&lat=' + lat + '&lon=' + lon + '&tag=park&radius=300&format=json'
+
+//     fetch(url2)
+//         .then((response2) => response2.json())
+//         .then((data2) => console.log(data2)
+        
+//         );
+// }
 
 function submitHandler() {
     event.preventDefault();
@@ -63,7 +94,7 @@ formEl.addEventListener('submit', submitHandler);
 // var settings = {
 //     "async": true,
 //     "crossDomain": true,
-//     "url": "https://us1.locationiq.com/v1/nearby.php?key=" + locationiqKey + "&lat=-37.870983&lon=144.980714&tag=park&radius=300&format=json",
+//     "url": "https://us1.locationiq.com/v1/nearby.php?key=" + parksKey + "&lat=" + lat + "&lon=" + lon + "tag=park&radius=300&format=json",
 //     "method": "GET"
 //   }
   
