@@ -76,10 +76,19 @@
   </section>
 
   <article class="panel is-info">
+    
     <p class="panel-heading">
       Places Visited
     </p>
     <div class="panel-block">
+      
+      <form id = 'formEl'>
+        <input name='searchBar' id='searchBar' type='text' class = 'searchBar'>
+        <button type='submit' id='search'>Search</button>
+    
+        <div id='map'></div>
+      </form>
+
       <p class="control has-icons-left">
         <input class="input is-info" type="text" placeholder="Search">
         <span class="icon is-left">
@@ -133,7 +142,7 @@
     <button type='submit' id='search'>Search</button>
 
     <div id='map'></div>
-</form>
+  </form>
 
   <script src="./assets/script/script.js"></script>
 </body>
