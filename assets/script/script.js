@@ -5,6 +5,9 @@ var lon;
 var locationiqKey = 'pk.d7efa64ad72930f59e7960a7cb00fa7c';
 var styleKey = 'pk.aa6177ea090cca8fee755da0893b03e8';
 var parksKey = 'pk.7df0b25504ae825b867431043a4594df';
+var themeStandard = "streets"
+var themeDark = "dark"
+var themeLight = "light"
 
 function fetchLocation(query) {
     var url = 'https://us1.locationiq.com/v1/search.php?key=' + locationiqKey + '&q=' + query + '&format=json';
@@ -25,7 +28,7 @@ function fetchLocation(query) {
      var map = new mapboxgl.Map({
         container: 'map',
         attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
-        style: 'https://tiles.locationiq.com/v3/streets/vector.json?key='+locationiqKey,
+        style: 'https://tiles.locationiq.com/v3/' + themeStandard + '/vector.json?key='+ styleKey,
         zoom: 12,
         center: [lon,lat]
         });
@@ -51,28 +54,7 @@ function fetchLocation(query) {
 
 }
 
-// function fetchParks() {
-//     // var url2 = 'https://us1.locationiq.com/v1/nearby.php?key=pk.7df0b25504ae825b867431043a4594df&lat=-37.870983&lon=144.980714&tag=park&radius=300&format=json'
-//     var url2 = 'https://us1.locationiq.com/v1/nearby.php?key=pk.7df0b25504ae825b867431043a4594df&lat=32.7174209&lon=-117.1627714&tag=park&radius=300&format=json'
-//     fetch(url2)
-//         .then((response2) => response2.json())
-//         .then((data2) => console.log(data2)
-        
-//         );
-// }
-// fetchParks();
 
-//https://us1.locationiq.com/v1/nearby.php?key=pk.7df0b25504ae825b867431043a4594df&lat=32.7174209&lon=-117.1627714&tag=park&radius=300&format=json
-
-// function fetchParks() {
-//     var url2 = 'https://us1.locationiq.com/v1/nearby.php?key=' + parksKey + '&lat=' + lat + '&lon=' + lon + '&tag=park&radius=300&format=json'
-
-//     fetch(url2)
-//         .then((response2) => response2.json())
-//         .then((data2) => console.log(data2)
-        
-//         );
-// }
 
 function submitHandler() {
     event.preventDefault();
@@ -91,13 +73,3 @@ function submitHandler() {
 
 formEl.addEventListener('submit', submitHandler);
 
-// var settings = {
-//     "async": true,
-//     "crossDomain": true,
-//     "url": "https://us1.locationiq.com/v1/nearby.php?key=" + parksKey + "&lat=" + lat + "&lon=" + lon + "tag=park&radius=300&format=json",
-//     "method": "GET"
-//   }
-  
-//   $.ajax(settings).done(function (response) {
-//     console.log(response);
-//   });
