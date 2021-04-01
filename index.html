@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alltrails And Parks</title>
+  <link rel="stylesheet" href="./assets/style/reset.css">
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
     <style>
             body { margin:0px; padding:0px; }
             #map { position:absolute; bottom:0%; width:50%; height:50%; }
     </style>
-  <link rel="stylesheet" href="./assets/style/reset.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/style/style.css">
 </head>
@@ -128,10 +128,12 @@
     </div>
   </footer>
   
-  <h2>Map
-    <button id="search">Search</button>
+  <form id = 'formEl'>
+    <input name='searchBar' id='searchBar' type='text' class = 'searchBar'>
+    <button type='submit' id='search'>Search</button>
+
     <div id='map'></div>
-  </h2>
+</form>
 
   <script src="./assets/script/script.js"></script>
 </body>
