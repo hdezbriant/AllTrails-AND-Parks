@@ -3,7 +3,8 @@ var searchBar = document.querySelector('#searchBar');
 var lat; 
 var lon;
 var locationiqKey = 'pk.d7efa64ad72930f59e7960a7cb00fa7c';
-
+var styleKey = 'pk.aa6177ea090cca8fee755da0893b03e8';
+var parksKey = 'pk.7df0b25504ae825b867431043a4594df';
 
 function fetchLocation(query) {
     var url = 'https://us1.locationiq.com/v1/search.php?key=' + locationiqKey + '&q=' + query + '&format=json';
