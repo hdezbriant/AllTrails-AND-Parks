@@ -9,6 +9,45 @@ var themeStandard = "streets"
 var themeDark = "dark"
 var themeLight = "light"
 
+
+// Local Storage ===============
+
+var favoritesInput = document.querySelector("#favoritesInputText");
+var favoritesForm = document.querySelector("#favoritesInputForm");
+
+favoritesForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if (favoritesInput === "") {
+        return;
+      }
+    
+    favoritesInput = favoritesInput.value;
+    console.log(favoritesInput);
+    // favoritesInput.value = "";
+    addFavoritesEntry();
+});
+
+function addFavoritesEntry() {
+    var userFavoritesList = document.getElementById("userPlaceList");
+    var favoritePlace = document.createElement("a");
+    var favoriteSpan = document.createElement("span");
+    var spanIcon = document.createElement("i");
+    console.log(favoritesInput);
+    
+    // favoritePlace.textContent = favoritesInput;
+    favoritePlace.classList.add("panel-block");
+    favoritePlace.appendChild(favoriteSpan);
+    favoriteSpan.classList.add("panel-icon");
+    favoriteSpan.appendChild(spanIcon);
+    spanIcon.classList.add("fas", "fa-book");
+    spanIcon.setAttribute("aria-hidden", "true");
+    favoritePlace.append(favoritesInput);
+    userFavoritesList.appendChild(favoritePlace);
+}
+
+// Local Storage ===============
+
 function fetchLocation(query) {
     var url = 'https://us1.locationiq.com/v1/search.php?key=' + locationiqKey + '&q=' + query + '&format=json';
     fetch(url)
