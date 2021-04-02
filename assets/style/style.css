@@ -38,6 +38,14 @@ h2 {
     object-fit: cover;
 }
 
+#formEl {
+    display: flex;
+}
+
+.is-halfheight {
+    margin: 1.6%;
+}
+
 #mapContainer {
     position: absolute;
     /* top: 0%; */
