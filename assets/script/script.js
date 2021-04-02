@@ -8,7 +8,7 @@ var parksKey = 'pk.7df0b25504ae825b867431043a4594df';
 var themeStandard = "streets"
 var themeDark = "dark"
 var themeLight = "light"
-
+locationiq.key = styleKey;
 function fetchLocation(query) {
     var url = 'https://us1.locationiq.com/v1/search.php?key=' + locationiqKey + '&q=' + query + '&format=json';
     fetch(url)
@@ -56,7 +56,19 @@ function fetchLocation(query) {
         map.addControl(new mapboxgl.ScaleControl({
             maxWidth: 80,
             unit: 'metric' //imperial for miles
+        
         }));
+        var layerStyles = {
+            "Streets": "streets/vector",
+            "Dark": "dark/vector",
+            "Light": "light/vector"
+        };
+       
+        map.addControl(new locationiqLayerControl({
+            key: locationiq.key,
+            layerStyles: layerStyles
+        }), 'top-left');
+
         //Add Geolocation control to the map (will only render when page is opened over HTTPS)
         map.addControl(new mapboxgl.GeolocateControl({
             positionOptions: {
