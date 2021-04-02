@@ -58,30 +58,32 @@
       </div>
     </div>
     </div>
-
   </section>
-  <form id='formEl'>
-    <input name='searchBar' id='searchBar' type='text' class='searchBar'>
-    <button type='submit' id='search'>Search</button>
+
+  <div id="mapContainer">
+    <form id='formEl'>
+      <input name='searchBar' id='searchBar' type='text' class='searchBar'>
+      <button type='submit' id='search'>Search</button>
 
     <div id='map'></div>
-  </form>
+    </form>
+  </div>
 
-  <article class="panel is-info" id="userplacelist">
+  <article class="panel is-info" id="userPlaceList">
     <p class="panel-heading">
       Places Visited
     </p>
     <div class="panel-block">
-
-
-      <p class="control has-icons-left">
-        <input class="input is-info" type="text" placeholder="Search">
-        <span class="icon is-left">
-          <i class="fas fa-search"></i>
-        </span>
-      </p>
+      <!-- <p class="control has-icons-left"> -->
+          <form id="favoritesInputForm" method="POST">
+          <input id="favoritesInputText" class="input is-info" type="text" placeholder="Use this space to save your favorites!">
+          <span class="icon is-left">
+            <i class="fas fa-search"></i>
+          </span>
+        </form>
+      <!-- </p> -->
     </div>
-    <a class="panel-block is-active raidus-50%">
+    <a class="panel-block">
       <span class="panel-icon">
         <i class="fas fa-book" aria-hidden="true"></i>
       </span>
@@ -108,13 +110,13 @@
   </article>
   <!-- five day forecast block?-->
 
-  <footer class="footer">
+  <footer>
     <div class="content has-text-centered">
       <p>
         <strong>Alltrails and Parks</strong> by:<br>
-        <a href="https://github.com/amata7">Adrian Mata</a><br>
+        <a href="https://github.com/amata7">Adrian Mata, </a>
         <a href="https://github.com/myles502">Myles Magallanes</a><br>
-        <a href="https://github.com/tvnames">Andrew Parsons</a><br>
+        <a href="https://github.com/tvnames">Andrew Parsons, and </a>
         <a href="https://github.com/hdezbriant"> Brian Hernandez</a><br>
         The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website
         content
