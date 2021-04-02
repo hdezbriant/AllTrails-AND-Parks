@@ -12,25 +12,22 @@ h2 {
     font-size: 200%;
 } */
 
+#headerSearchBox {
+    background: transparent;
+    box-shadow: none;
+}
+
+#headerBottom {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .customTitle {
     font-size: 250%;
 }
 
 .customSubtitle {
     font-size: 200%;
-}
-
-#map {
-    position: absolute;
-    bottom: 0%;
-    width: 50%;
-    height: 50%;
-}
-
-#userplacelist {
-    width: 50%;
-    /* margin-right: 0%; */
-    margin-left: 50%;
 }
 
 .banner-img {
@@ -41,12 +38,32 @@ h2 {
     object-fit: cover;
 }
 
-#headerSearchBox {
-    background: transparent;
-    box-shadow: none;
+#mapContainer {
+    position: absolute;
+    /* top: 0%; */
+    width: 45%;
+    height: 50%;
 }
 
-#headerBottom {
-    flex-wrap: wrap;
-    justify-content: center;
+#map {
+    overflow: visible;
+}
+
+.mapboxgl-ctrl-bottom-left {
+   top: 0%; 
+}
+
+#userPlaceList {
+    width: 50%;
+    margin-right: 0%;
+    margin-left: 50%;
+}
+
+#favoritesInputForm {
+    display: contents;
+}
+
+footer {
+    padding: 1.5rem;
+    margin-bottom: 1%;
 }
