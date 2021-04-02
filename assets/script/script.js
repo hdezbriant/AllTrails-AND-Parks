@@ -13,19 +13,26 @@ locationiq.key = styleKey;
 
 // Local Storage ===============
 
-var favoritesInput = document.querySelector("#favoritesInputText");
 var favoritesForm = document.querySelector("#favoritesInputForm");
+var favoritesInput = document.querySelector("#favoritesInputText");
+var favoritesValue = "";
+
+// function innit(){
+//     var userFavoritesList = document.getElementById("userPlaceList");
+//     var LocalStorageArray = document.getElementById()
+// }innit()
+
 
 favoritesForm.addEventListener("submit", function(event) {
     event.preventDefault();
-
+    
     if (favoritesInput === "") {
         return;
       }
     
-    favoritesInput = favoritesInput.value;
-    console.log(favoritesInput);
-    // favoritesInput.value = "";
+    favoritesValue = favoritesInput.value;
+    console.log(favoritesValue);
+    //favoritesInput.value = "";
     addFavoritesEntry();
 });
 
@@ -34,7 +41,7 @@ function addFavoritesEntry() {
     var favoritePlace = document.createElement("a");
     var favoriteSpan = document.createElement("span");
     var spanIcon = document.createElement("i");
-    console.log(favoritesInput);
+ 
     
     // favoritePlace.textContent = favoritesInput;
     favoritePlace.classList.add("panel-block");
@@ -43,13 +50,23 @@ function addFavoritesEntry() {
     favoriteSpan.appendChild(spanIcon);
     spanIcon.classList.add("fas", "fa-book");
     spanIcon.setAttribute("aria-hidden", "true");
-    favoritePlace.append(favoritesInput);
+    favoritePlace.append(favoritesValue);
     userFavoritesList.appendChild(favoritePlace);
-    localStorage.setItem(favoritesInput, favoritePlace);
+    localStorage.setItem(favoritesValue, favoritePlace);
+
+    let currentInfo = document.getElementById('panel-block')
+
+    for (let i = 0; i < currentInfo; i++) {
+        userFavoritesList.append(`
+          <a> 
+            <span></span>
+            ${localStorageArray[i]}
+          </a>
+        `)
+      }
 }
 
 // Local Storage ===============
-
 
 function fetchLocation(query) {
     var url = 'https://us1.locationiq.com/v1/search.php?key=' + locationiqKey + '&q=' + query + '&format=json';
