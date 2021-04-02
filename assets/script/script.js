@@ -44,6 +44,7 @@ function addFavoritesEntry() {
     spanIcon.setAttribute("aria-hidden", "true");
     favoritePlace.append(favoritesInput);
     userFavoritesList.appendChild(favoritePlace);
+    localStorage.setItem(favoritesInput, favoritePlace);
 }
 
 // Local Storage ===============
