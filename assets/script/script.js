@@ -18,12 +18,22 @@ function fetchLocation(query) {
         lon = data[0].lon;
         console.log(lon,lat)
         
-    var url2 = 'https://us1.locationiq.com/v1/nearby.php?key=' + parksKey + '&lat=' + lat + '&lon=' + lon + '&tag=park&radius=300&format=json'
+    var url2 = 'https://us1.locationiq.com/v1/nearby.php?key=' + parksKey + '&lat=' + lat + '&lon=' + lon + '&tag=park&radius=3000&format=json'
 
         fetch(url2)
             .then((response2) => response2.json())
-            .then((data2) => console.log(data2)
-            )
+            .then(function (data2) {
+                console.log(data2);
+                for (i=0;i < data2.length; i+=1) { 
+            parkLat = data2[i].lat;
+            parkLon = data2[i].lon;
+        
+            var marker1 = new mapboxgl.Marker( {color: 'green', rotation: 45 })
+            .setLngLat([parkLon, parkLat])
+            .addTo(map);
+            
+                }
+        } )
 
      var map = new mapboxgl.Map({
         container: 'map',
@@ -32,6 +42,10 @@ function fetchLocation(query) {
         zoom: 12,
         center: [lon,lat]
         });
+
+
+        
+        
 
         //Add Navigation controls to the map to the top-right corner of the map
         var nav = new mapboxgl.NavigationControl();
