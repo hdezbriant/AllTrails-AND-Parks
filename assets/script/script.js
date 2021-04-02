@@ -95,7 +95,7 @@ function fetchLocation(query) {
 
 
 
-function submitHandler() {
+function submitHandler(event) {
     event.preventDefault();
     var query = searchBar.value.trim();
 
