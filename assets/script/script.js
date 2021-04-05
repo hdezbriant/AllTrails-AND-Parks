@@ -16,12 +16,33 @@ locationiq.key = styleKey;
 var favoritesForm = document.querySelector("#favoritesInputForm");
 var favoritesInput = document.querySelector("#favoritesInputText");
 var favoritesValue = "";
+var parks = ('');
 
-// function innit(){
+
+//  function innit(){
 //     var userFavoritesList = document.getElementById("userPlaceList");
 //     var LocalStorageArray = document.getElementById()
-// }innit()
-
+//  }innit()
+ let parksArray = ["","park2"];
+ undefined
+ let parksStringify = JSON.stringify(parksArray);
+ undefined
+ parksArray
+ Array [ "yosemeti", "park2" ]
+ parksStringify
+ "[\"yosemeti\",\"park2\"]"
+ localStorage.setItem("parks", parksStringify);
+ undefined
+ let localItems = localStorage.getItem("parks");
+ undefined
+ localItems
+ "[\"yosemeti\",\"park2\"]"
+ let localArray = JSON.parse(localItems);
+ undefined
+ localArray
+ Array [ "yosemeti", "park2" ]
+ localArray[0]
+ "yosemeti"
 
 favoritesForm.addEventListener("submit", function(event) {
     event.preventDefault();
