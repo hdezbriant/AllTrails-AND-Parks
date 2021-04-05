@@ -129,65 +129,67 @@ function fetchLocation(query) {
     var url = 'https://us1.locationiq.com/v1/search.php?key=' + locationiqKey + '&q=' + query + '&format=json';
     fetch(url)
         .then((response) => response.json())
-        .then((data) => {console.log(data);
-        lat = data[0].lat;
-        lon = data[0].lon;
-        console.log(lon,lat)
-        
-    var url2 = 'https://us1.locationiq.com/v1/nearby.php?key=' + parksKey + '&lat=' + lat + '&lon=' + lon + '&tag=park&radius=3000&format=json'
+        .then((data) => {
+            console.log(data);
+            lat = data[0].lat;
+            lon = data[0].lon;
+            console.log(lon, lat)
 
-        fetch(url2)
-            .then((response2) => response2.json())
-            .then(function (data2) {
-                console.log(data2);
-                for (i=0;i < data2.length; i+=1) { 
-            parkLat = data2[i].lat;
-            parkLon = data2[i].lon;
-            parkName = data2[i].name;
-        
-            var popup = new mapboxgl.Popup()
-                .setHTML('<b>Park Name:</b>' + parkName);
-                
-            var el = document.createElement('div');
-            el = mapboxgl.Marker
-                el.id = 'markerWithExternalCss';
-                // finally, create the marker
-console.log(parkName);
-            var markerWithExternalCss = new mapboxgl.Marker({color: 'green', rotation: 45 })
-                .setLngLat([parkLon, parkLat])
-                .setPopup(popup)
-                .addTo(map);
-            
-                }
-        } )
+            var url2 = 'https://us1.locationiq.com/v1/nearby.php?key=' + parksKey + '&lat=' + lat + '&lon=' + lon + '&tag=park&radius=3000&format=json'
 
-     var map = new mapboxgl.Map({
-        container: 'map',
-        attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
-        style: 'https://tiles.locationiq.com/v3/' + themeStandard + '/vector.json?key='+ styleKey,
-        zoom: 12,
-        center: [lon,lat]
-    });
+            fetch(url2)
+                .then((response2) => response2.json())
+                .then(function (data2) {
+                    console.log(data2);
+                    for (i = 0; i < data2.length; i += 1) {
+                        parkLat = data2[i].lat;
+                        parkLon = data2[i].lon;
+                        parkName = data2[i].name;
 
-}
+                        var popup = new mapboxgl.Popup()
+                            .setHTML('<b>Park Name:</b>' + parkName);
+
+                        var el = document.createElement('div');
+                        el = mapboxgl.Marker
+                        el.id = 'markerWithExternalCss';
+                        // finally, create the marker
+                        console.log(parkName);
+                        var markerWithExternalCss = new mapboxgl.Marker({ color: 'green', rotation: 45 })
+                            .setLngLat([parkLon, parkLat])
+                            .setPopup(popup)
+                            .addTo(map);
+
+                    }
+                })
+
+            var map = new mapboxgl.Map({
+                container: 'map',
+                attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
+                style: 'https://tiles.locationiq.com/v3/' + themeStandard + '/vector.json?key=' + styleKey,
+                zoom: 12,
+                center: [lon, lat]
+            });
+
+        });
+};
 
 
 
 function submitHandler(event) {
-    event.preventDefault();
-    var query = searchBar.value.trim();
+                event.preventDefault();
+                var query = searchBar.value.trim();
 
-    if (query) {
-        fetchLocation(query);
-        console.log(query);
+                if (query) {
+                    fetchLocation(query);
+                    console.log(query);
 
-    } else {
-        alert('Please enter a valid city name');
-    }
-}
+                } else {
+                    alert('Please enter a valid city name');
+                }
+            }
 
 
 
 formEl.addEventListener('submit', submitHandler);
 
-init();
+    init();
