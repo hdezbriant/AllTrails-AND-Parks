@@ -11,10 +11,6 @@
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
   <script src='https://tiles.locationiq.com/v3/js/liq-styles-ctrl-gl.js?v=0.1.8'></script>
   <link href='https://tiles.locationiq.com/v3/css/liq-styles-ctrl-gl.css?v=0.1.8' rel='stylesheet' />
-    <style>
-            body { margin:0px; padding:0px; }
-            #map { position:absolute; bottom:0%; width:50%; height:50%; }
-    </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/style/style.css">
@@ -32,8 +28,6 @@
           Come find Yours
         </h2>
         <div class="box" id="headerSearchBox">
-          <p class="title has-text-white">User Location</p>
-          <p class="subtitle has-text-white">Parks or Trails?</p>
           <div class="field has-addons has-addons-centered">
             <p class="control">
               <span class="select">
@@ -44,16 +38,15 @@
               </span>
             </p>
             <form id="formEl">
-            <p class="control">
-              <input name="searchBar" id="searchBar" type="text" class="input"
-                placeholder="Find your Park or Trail">
-            </p>
-            <p class="control">
-              <button class="button is-info" type='submit' id='search'>
-                Search
-              </button>
-            </p>
-          </form>
+              <p class="control">
+                <input name="searchBar" id="searchBar" type="text" class="input" placeholder="Find your Park or Trail">
+              </p>
+              <p class="control">
+                <button class="button is-info" type='submit' id='search'>
+                    Search
+                </button>
+              </p>
+            </form>
           </div>
           <div class="columns is-desktop has-text-white">
             <div class="column"> Looking for a new park?
@@ -70,51 +63,50 @@
     </div>
   </section>
 
-  <div id="mapContainer">
-    <div id='map'></div>
-  </div>
-
-  <article class="panel is-info" id="userPlaceList">
-    <p class="panel-heading">
-      Places Visited
-    </p>
-    <div class="panel-block">
-      <!-- <p class="control has-icons-left"> -->
-      <form id="favoritesInputForm" method="POST">
-        <input id="favoritesInputText" class="input is-info" type="text"
-          placeholder="Use this space to save your favorites!">
-        <span class="icon is-left">
-          <i class="fas fa-search"></i>
-        </span>
-      </form>
-      <!-- </p> -->
+  <section id="contentSection">
+    <div id="mapContainer">
+      <div id='map'></div>
     </div>
-    <a class="panel-block">
-      <span class="panel-icon">
-        <i class="fas fa-book" aria-hidden="true"></i>
-      </span>
-      Dixon Lake
-    </a>
-    <a class="panel-block">
-      <span class="panel-icon">
-        <i class="fas fa-book" aria-hidden="true"></i>
-      </span>
-      Big Bear
-    </a>
-    <a class="panel-block">
-      <span class="panel-icon">
-        <i class="fas fa-book" aria-hidden="true"></i>
-      </span>
-      Escondido
-    </a>
-    <a class="panel-block">
-      <span class="panel-icon">
-        <i class="fas fa-book" aria-hidden="true"></i>
-      </span>
-      Friendship Park
-    </a>
-  </article>
-  <!-- five day forecast block?-->
+
+    <article class="panel is-info" id="userPlaceList">
+      <p class="panel-heading">
+        Places Visited
+      </p>
+      <div class="panel-block">
+        <form id="favoritesInputForm" method="POST">
+          <input id="favoritesInputText" class="input is-info" type="text"
+            placeholder="Use this space to save your favorites!">
+          <span class="icon is-left">
+            <i class="fas fa-search"></i>
+          </span>
+        </form>
+      </div>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        Dixon Lake
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        Big Bear
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        Escondido
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        Friendship Park
+      </a>
+    </article>
+  </section>
 
   <footer>
     <div class="content has-text-centered">
@@ -122,7 +114,7 @@
         <strong>Alltrails and Parks</strong> by:<br>
         <a href="https://github.com/amata7">Adrian Mata, </a>
         <a href="https://github.com/myles502">Myles Magallanes</a><br>
-        <a href="https://github.com/tvnames">Andrew Parsons, and </a>
+        <a href="https://github.com/tvnames">Andrew Parsons</a>, and 
         <a href="https://github.com/hdezbriant"> Brian Hernandez</a><br>
         The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website
         content
