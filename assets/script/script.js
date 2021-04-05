@@ -13,40 +13,86 @@ locationiq.key = styleKey;
 
 // Local Storage ===============
 
-var favoritesInput = document.querySelector("#favoritesInputText");
 var favoritesForm = document.querySelector("#favoritesInputForm");
+var favoritesInput = document.querySelector("#favoritesInputText");
+var parks = ('');
 
-favoritesForm.addEventListener("submit", function(event) {
+var parksArray = [];
+
+function init() {
+    var storedParks = JSON.parse(localStorage.getItem("parks"));
+
+    if (storedParks !== null) {
+        parks = storedParks;
+    }
+
+    showParks();
+}
+
+function storeFavoriteParks(favInputText) {
+    var storedParks = JSON.parse(localStorage.getItem("parks"));
+
+    if (storedParks !== null) {
+        parksArray = storedParks;
+
+        parksArray.push(favInputText);
+        localStorage.setItem("parks", JSON.stringify(parksArray));
+    } else {
+        parksArray.push(favInputText);
+        localStorage.setItem("parks", JSON.stringify(parksArray));
+    }
+    parks = parksArray;
+}
+
+
+favoritesForm.addEventListener("submit", function (event) {
     event.preventDefault();
+
+    var favInputText = favoritesInput.value.trim();
 
     if (favoritesInput === "") {
         return;
-      }
-    
-    favoritesInput = favoritesInput.value;
-    console.log(favoritesInput);
-    // favoritesInput.value = "";
-    addFavoritesEntry();
+    }
+
+    // Set value for user input, pushes to parksArray
+    // then runs function to append list item and set local storage
+
+    favoritesValue = favoritesInput.value;
+    // parksArray.push(favInputText);
+
+    // Clears input field, stores input in local storage
+    favoritesInput.value = "";
+    console.log(favInputText);
+    storeFavoriteParks(favInputText);
+    showParks();
 });
 
-function addFavoritesEntry() {
-    var userFavoritesList = document.getElementById("userPlaceList");
-    var favoritePlace = document.createElement("a");
-    var favoriteSpan = document.createElement("span");
-    var spanIcon = document.createElement("i");
-    console.log(favoritesInput);
-    
-    // favoritePlace.textContent = favoritesInput;
-    favoritePlace.classList.add("panel-block");
-    favoritePlace.appendChild(favoriteSpan);
-    favoriteSpan.classList.add("panel-icon");
-    favoriteSpan.appendChild(spanIcon);
-    spanIcon.classList.add("fas", "fa-book");
-    spanIcon.setAttribute("aria-hidden", "true");
-    favoritePlace.append(favoritesInput);
-    userFavoritesList.appendChild(favoritePlace);
-    localStorage.setItem(favoritesInput, favoritePlace);
-}
+function showParks() {
+    console.log("showParks");
+    // Append tree for list item and styling
+    // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    var userFavoritesList = document.getElementById("favoritesList");
+
+    userFavoritesList.innerHTML = "";
+
+    for (var i = 0; i < parks.length; i += 1) {
+        var favoritePlace = document.createElement("a");
+        var span = document.createElement("span");
+        var spanIcon = document.createElement("i");
+
+        var park = parks[i];
+
+        span.appendChild(spanIcon);
+        favoritePlace.classList.add("panel-block");
+        favoritePlace.setAttribute("data-index", i);
+        favoritePlace.appendChild(span);
+        span.classList.add("panel-icon");
+        spanIcon.classList.add("fas", "fa-book");
+        spanIcon.setAttribute("aria-hidden", "true");
+        userFavoritesList.appendChild(favoritePlace);
+        favoritePlace.append(park);
+    }
+};
 
 // Local Storage ===============
 
@@ -150,4 +196,4 @@ function submitHandler(event) {
 
 
 formEl.addEventListener('submit', submitHandler);
-
+init();
