@@ -28,6 +28,8 @@
           Come find Yours
         </h2>
         <div class="box" id="headerSearchBox">
+          <p class="title has-text-white">User Location</p>
+          <p class="subtitle has-text-white">Parks or Trails?</p>
           <div class="field has-addons has-addons-centered">
             <p class="control">
               <span class="select">
@@ -43,7 +45,7 @@
               </p>
               <p class="control">
                 <button class="button is-info" type='submit' id='search'>
-                    Search
+                  Search
                 </button>
               </p>
             </form>
@@ -64,49 +66,51 @@
   </section>
 
   <section id="contentSection">
-    <div id="mapContainer">
-      <div id='map'></div>
-    </div>
+  <div id="mapContainer">
+    <div id='map'></div>
+  </div>
 
-    <article class="panel is-info" id="userPlaceList">
-      <p class="panel-heading">
-        Places Visited
-      </p>
-      <div class="panel-block">
-        <form id="favoritesInputForm" method="POST">
-          <input id="favoritesInputText" class="input is-info" type="text"
-            placeholder="Use this space to save your favorites!">
-          <span class="icon is-left">
-            <i class="fas fa-search"></i>
-          </span>
-        </form>
-      </div>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fas fa-book" aria-hidden="true"></i>
+  <article class="panel is-info" id="userPlaceList">
+    <p class="panel-heading">
+      <label for="places-visited">Places Visited:</label>
+    </p>
+    <div class="panel-block">
+      <form id="favoritesInputForm" method="POST">
+        <input class="input is-info" type="text" placeholder="Use this space to save your favorites!"
+          name="favoritesInputText" id="favoritesInputText" />
+        <span class="icon is-left">
+          <i class="fas fa-search"></i>
         </span>
-        Dixon Lake
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fas fa-book" aria-hidden="true"></i>
-        </span>
-        Big Bear
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fas fa-book" aria-hidden="true"></i>
-        </span>
-        Escondido
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fas fa-book" aria-hidden="true"></i>
-        </span>
-        Friendship Park
-      </a>
-    </article>
-  </section>
+      </form>
+    </div>
+    <a class="panel-block">
+      <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+      </span>
+      Dixon Lake
+    </a>
+    <a class="panel-block">
+      <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+      </span>
+      Big Bear
+    </a>
+    <a class="panel-block">
+      <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+      </span>
+      Escondido
+    </a>
+    <a class="panel-block">
+      <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+      </span>
+      Rocketship Park
+    </a>
+    <div id="favoritesList">
+    </div>
+  </article>
+</section>
 
   <footer>
     <div class="content has-text-centered">
