@@ -69,10 +69,20 @@ function fetchLocation(query) {
                 for (i=0;i < data2.length; i+=1) { 
             parkLat = data2[i].lat;
             parkLon = data2[i].lon;
+            parkName = data2[i].name;
         
-            var marker1 = new mapboxgl.Marker( {color: 'green', rotation: 45 })
-            .setLngLat([parkLon, parkLat])
-            .addTo(map);
+            var popup = new mapboxgl.Popup()
+                .setHTML('<b>Park Name:</b>' + parkName);
+                
+            var el = document.createElement('div');
+            el = mapboxgl.Marker
+                el.id = 'markerWithExternalCss';
+                // finally, create the marker
+console.log(parkName);
+            var markerWithExternalCss = new mapboxgl.Marker({color: 'green', rotation: 45 })
+                .setLngLat([parkLon, parkLat])
+                .setPopup(popup)
+                .addTo(map);
             
                 }
         } )
